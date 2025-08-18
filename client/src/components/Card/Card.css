@@ -1,0 +1,59 @@
+.fig-program {
+  width: 380px;
+  background-color: rgba(128, 128, 128, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+  color: white;
+  position: relative;
+  margin: 46px;
+}
+
+/* Image */
+.fig-program img {
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  padding: 8px;
+  object-fit: cover;
+}
+
+/* Titre style étiquette noire */
+.fig-program h2 {
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  padding: 4px 8px;
+  margin: 4px 8px;
+  text-align: center;
+}
+
+/* Sous-titres (ex: Synopsis, Country, Year) */
+.fig-program h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 6px 8px 2px;
+  color: black;
+}
+
+/* Paragraphes */
+.fig-program p {
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 0 8px 8px;
+  color: #fff;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+/* Icône en bas à droite (placeholder en CSS pour le moment) */
+.fig-program::after {
+  content: "♡";
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}

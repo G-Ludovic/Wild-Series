@@ -21,9 +21,3 @@ app
   .on("error", (err: Error) => {
     console.error("Error:", err.message);
   });
-
-const theWelcome: RequestHandler = (req, res) => {
-  res.send("Welcome to Wild Series !");
-};
-
-app.get("/", theWelcome);
