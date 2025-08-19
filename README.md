@@ -1,4 +1,35 @@
-# wild-series
+# Wild-Series
+
+## Wild Series, ce qui est attendu : <br>
+✔️ Création d’une application web responsive et dynamique.
+
+Les principales fonctionnalités : <br>
+✔️ Pouvoir afficher les séries par catégorie <br>
+✔️ Pouvoir afficher la distribution artistique des séries <br>
+✔️ Pouvoir ajouter des séries en favori <br>
+✔️ Pouvoir administrer tout le contenu du site <br>
+✔️ Pouvoir gérer les comptes utilisateurs
+
+Parcours utilisateur (arborescence) : <br>
+<img width="640" height="400" alt="arborescence" src="https://github.com/user-attachments/assets/b6bbcf32-9a1d-4c84-bcbf-de622f42ed55" />
+
+## Stack techniques :
+Côté Serveur : Express,
+Côté client : React,
+Côté style : CSS Modules.
+
+## Et ci-dessous, le wireframe fourni directement par le client.
+<img width="928" height="797" alt="WireframeWS" src="https://github.com/user-attachments/assets/f1f52c6c-fc00-46da-9a2d-7dca980bf637" />
+
+## Aperçu de la base de donnée qui peux évoluer au cours du temps :
+<img width="1101" height="629" alt="BDD_Modélisation" src="https://github.com/user-attachments/assets/c6c7b978-ce5f-4fa9-881a-3e1cb73c73ce" />
+
+## Style guide & Maquette :
+<img width="889" height="1249" alt="StyleGuideFigma" src="https://github.com/user-attachments/assets/08d28bf9-0218-4800-b67f-e7e1bafed3b8" />
+<img width="1435" height="1019" alt="MaquetteAcceuilWS" src="https://github.com/user-attachments/assets/082f8f05-1675-49bd-8550-495e2ab3fb19" />
+<img width="431" height="1018" alt="MaquetteAcceuil(mobile)WS" src="https://github.com/user-attachments/assets/956edd80-6f5a-4d2b-a17d-8e527c9d4bee" />
+
+<hr>
 
 Ce projet est un monorepo JS, suivant l'architecture React-Express-MySQL telle qu'enseignée à la Wild Code School (v7.2.4) :
 
