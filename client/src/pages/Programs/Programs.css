@@ -1,0 +1,36 @@
+.main-programs {
+  background-color: black;
+  height: 83.5vh;
+}
+
+.main-programs h1 {
+  display: flex;
+  margin-left: 46px;
+  padding-top: 16px;
+  color: white;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+}
+
+.box-programs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 320px) and (max-width: 968px) {
+  .main-programs {
+    height: auto;
+  }
+
+  .box-programs {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  .fig-program {
+    max-width: 280px;
+    height: max-content;
+  }
+}
