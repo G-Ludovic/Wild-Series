@@ -3,6 +3,7 @@
 
 .ws-head {
   display: flex;
+  flex-direction: row;
   height: 150px;
   background-color: rgba(128, 128, 128, 1);
 }
@@ -13,12 +14,13 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.ws-head h1 {
+.ws-head .title-logo {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-style: italic 5deg;
+  font-style: italic;
   align-self: center;
   margin-left: 2rem;
+  margin-right: 2rem;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: white;
 }
