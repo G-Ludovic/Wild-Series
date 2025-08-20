@@ -6,7 +6,6 @@ import "dotenv/config";
 // is not required when starting the application
 import "../database/checkConnection";
 
-import type { RequestHandler } from "express";
 // Import the Express application from ./app
 import app from "./app";
 
