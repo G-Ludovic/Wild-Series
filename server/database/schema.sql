@@ -1,35 +1,39 @@
--- create table user (
---   id int unsigned primary key auto_increment not null,
---   email varchar(255) not null unique,
---   password varchar(255) not null
--- );
+create table user (
+  id int unsigned primary key auto_increment not null,
+  email varchar(255) not null unique,
+  password varchar(255) not null
+);
 
--- create table item (
---   id int unsigned primary key auto_increment not null,
---   title varchar(255) not null,
---   user_id int unsigned not null,
---   foreign key(user_id) references user(id)
--- );
+create table item (
+  id int unsigned primary key auto_increment not null,
+  title varchar(255) not null,
+  user_id int unsigned not null,
+  foreign key(user_id) references user(id)
+);
 
--- insert into user(id, email, password)
--- values
---   (1, "jdoe@mail.com", "123456");
+insert into user(id, email, password)
+values
+  (1, "jdoe@mail.com", "123456");
 
--- insert into item(id, title, user_id)
--- values
---   (1, "Stuff", 1),
---   (2, "Doodads", 1);
--- 1. Table category
+insert into item(id, title, user_id)
+values
+  (1, "Stuff", 1),
+  (2, "Doodads", 1);
 
 CREATE TABLE category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL
 );
 
+insert into category(id, name)
+values
+  (1, "Comédie"),
+  (2, "Science-Fiction");
+
 CREATE TABLE program (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
-    synopsis TEXT,
+    synopsis TEXT NOT NULL,
     poster VARCHAR(255),
     country VARCHAR(255),
     year INT,
@@ -37,63 +41,68 @@ CREATE TABLE program (
     FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-CREATE TABLE actor (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    firstname VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
-    birth_date DATE
-);
+insert into program (id, title, synopsis, poster, country, year, category_id)
+values
+    (1, "The Good Place", "À sa mort, Eleanor Shellstrop est envoyée au Bon Endroit, un paradis fantaisiste réservé aux individus exceptionnellement bienveillants. Or Eleanor n'est pas exactement une « bonne personne » et comprend vite qu'il y a eu erreur sur la personne. Avec l'aide de Chidi, sa prétendue âme sœur dans l'au-delà, la jeune femme est bien décidée à se redécouvrir.", "https://img.betaseries.com/JwRqyGD3f9KvO_OlfIXHZUA3Ypw=/600x900/smart/https%3A%2F%2Fpictures.betaseries.com%2Ffonds%2Fposter%2F94857341d71c795c69b9e5b23c4bf3e7.jpg", "USA", 2016, 1),
+    (2, "Dark", "Quatre familles affolées par la disparition d'un enfant cherchent des réponses et tombent sur un mystère impliquant trois générations qui finit de les déstabiliser.", "https://img.betaseries.com/zDxfeFudy3HWjxa6J8QIED9iaVw=/600x900/smart/https%3A%2F%2Fpictures.betaseries.com%2Ffonds%2Fposter%2Fc47135385da176a87d0dd9177c5f6a41.jpg", "Allemagne", 2017, 2);
 
-CREATE TABLE program_actor (
-    actor_id INT,
-    program_id INT,
-    PRIMARY KEY (actor_id, program_id),
-    FOREIGN KEY (actor_id) REFERENCES actor(id) ON DELETE CASCADE,
-    FOREIGN KEY (program_id) REFERENCES program(id) ON DELETE CASCADE
-);
+-- CREATE TABLE actor (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     firstname VARCHAR(255) NOT NULL,
+--     lastname VARCHAR(255) NOT NULL,
+--     birth_date DATE
+-- );
 
-CREATE TABLE season (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    program_id INT NOT NULL,
-    number INT NOT NULL,
-    year INT,
-    description TEXT,
-    FOREIGN KEY (program_id) REFERENCES program(id) ON DELETE CASCADE
-);
+-- CREATE TABLE program_actor (
+--     actor_id INT,
+--     program_id INT,
+--     PRIMARY KEY (actor_id, program_id),
+--     FOREIGN KEY (actor_id) REFERENCES actor(id) ON DELETE CASCADE,
+--     FOREIGN KEY (program_id) REFERENCES program(id) ON DELETE CASCADE
+-- );
 
-CREATE TABLE episode (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    season_id INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    number INT,
-    synopsis TEXT,
-    FOREIGN KEY (season_id) REFERENCES season(id) ON DELETE CASCADE
-);
+-- CREATE TABLE season (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     program_id INT NOT NULL,
+--     number INT NOT NULL,
+--     year INT,
+--     description TEXT,
+--     FOREIGN KEY (program_id) REFERENCES program(id) ON DELETE CASCADE
+-- );
 
-CREATE TABLE user (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    bio TEXT
-);
+-- CREATE TABLE episode (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     season_id INT NOT NULL,
+--     title VARCHAR(255) NOT NULL,
+--     number INT,
+--     synopsis TEXT,
+--     FOREIGN KEY (season_id) REFERENCES season(id) ON DELETE CASCADE
+-- );
 
-CREATE TABLE watch_list (
-    user_id INT,
-    episode_id INT,
-    seen BOOLEAN DEFAULT FALSE,
-    liked BOOLEAN DEFAULT FALSE,
-    PRIMARY KEY (user_id, episode_id),
-    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
-    FOREIGN KEY (episode_id) REFERENCES episode(id) ON DELETE CASCADE
-);
+-- CREATE TABLE user (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     username VARCHAR(255) NOT NULL UNIQUE,
+--     email VARCHAR(255) NOT NULL UNIQUE,
+--     password VARCHAR(255) NOT NULL,
+--     bio TEXT
+-- );
 
-CREATE TABLE comment (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
-    episode_id INT NOT NULL,
-    comment TEXT,
-    rate INT CHECK(rate BETWEEN 0 AND 10),
-    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
-    FOREIGN KEY (episode_id) REFERENCES episode(id) ON DELETE CASCADE
-);
+-- CREATE TABLE watch_list (
+--     user_id INT,
+--     episode_id INT,
+--     seen BOOLEAN DEFAULT FALSE,
+--     liked BOOLEAN DEFAULT FALSE,
+--     PRIMARY KEY (user_id, episode_id),
+--     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+--     FOREIGN KEY (episode_id) REFERENCES episode(id) ON DELETE CASCADE
+-- );
+
+-- CREATE TABLE comment (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     user_id INT NOT NULL,
+--     episode_id INT NOT NULL,
+--     comment TEXT,
+--     rate INT CHECK(rate BETWEEN 0 AND 10),
+--     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+--     FOREIGN KEY (episode_id) REFERENCES episode(id) ON DELETE CASCADE
+-- );
